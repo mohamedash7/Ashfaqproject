@@ -76,7 +76,7 @@ resource "aws_launch_configuration" "web" {
   key_name = "Ashfaqdemo"
 
 
-  security_groups = [ aws_security_group.elb_http.id ]
+  security_groups = [ aws_security_group.elb_http.id, aws_security_group.allow_ssh ]
   associate_public_ip_address = true
 
   user_data = <<-EOF
