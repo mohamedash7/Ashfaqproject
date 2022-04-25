@@ -20,6 +20,12 @@ Hi Everyone hope you all are doing good,
 9. After verifying the changes please run "terraform apply" command it will ask to accept please type "yes"
 10. Your deployment will be started once the deployment is done please verify the setup in the aws account
 
+Output:
+
+Please hit the url of dns name under loadbalancer you will be seeing the "Hello webapp" being displayed in the web page
+
+You can also verify it by logging in to the ec2 instance and running the command curl://localhost:80 using the ssh client from the terminal
+
  
  
  
