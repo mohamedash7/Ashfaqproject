@@ -9,6 +9,8 @@ Hi Everyone hope you all are doing good,
  
  Please find the below steps that needs to be followed before deploying the code
  
+ Note: Please create a bucket in s3 and add that bucket name in your backend.tf file to read your state file from s3 bucket
+ 
 1. Please ensure that you have terraform installed in your system, please click this link to download terraform https://www.terraform.io/downloads
 2. Please clone the code from the github repository using the following command to the folder where you are going to locate the project using the below command
 3. git clone https://github.com/mohamedash7/Ashfaqproject and get the neccesary code available under the repo
@@ -19,6 +21,7 @@ Hi Everyone hope you all are doing good,
 8. Then run the command "terraform plan" to check the changes that are going to happen in your infrastructure of AWS account
 9. After verifying the changes please run "terraform apply" command it will ask to accept please type "yes"
 10. Your deployment will be started once the deployment is done please verify the infrastructure setup in the aws account
+
 
 Output:
 
