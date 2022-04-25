@@ -5,9 +5,14 @@ Hi Everyone hope you all are doing good,
 
  I have created a project to setup infrastructure using Terraform
  
- Requirements before deploying the code: AWS account with access key and security key, An aws key pair if you wish to login to the ec2 instance which is being created refer the link https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html and Terraform installed in your system, git hub account to clone the repo to your local system
+ Requirements before deploying the code: 
  
- Please find the below steps that needs to be followed before deploying the code
+ 1. AWS account with access key and security key
+ 2. An aws key pair if you wish to login to the ec2 instance which is being created refer the link https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html 
+ 3. If you will use an SSH client on a macOS or Linux computer to connect to your Linux instance, use the command "chmod 400 my-key-pair.pem" to set the permissions of your private key file so that only you can read it.
+ 4. Terraform installed in your system, git hub account to clone the repo to your local system
+ 
+Please find the below steps that needs to be followed before deploying the code
  
  Note: Please create a bucket in s3 and add that bucket name in your backend.tf file to read your state file from s3 bucket
  
