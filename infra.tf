@@ -26,7 +26,7 @@ resource "aws_internet_gateway" "my_vpc_igw" {
   }
 }
 
-resource "aws_route_table" "ash_vpc_us_east_1a_public" {
+resource "aws_route_table" "ash_vpc_us-east-1a_public" {
     vpc_id = aws_vpc.ash_vpc.id
 
     route {
@@ -39,13 +39,13 @@ resource "aws_route_table" "ash_vpc_us_east_1a_public" {
     }
 }
 
-resource "aws_route_table_association" "ash_vpc_us_east_1a_public" {
+resource "aws_route_table_association" "ash_vpc_us-east-1a_public" {
     subnet_id = aws_subnet.public.id
-    route_table_id = aws_route_table.ash_vpc_us_east_1a_public.id
+    route_table_id = aws_route_table.ash_vpc_us-east-1a_public.id
 }
 
 resource "aws_security_group" "allow_ssh" {
-  name        = "allow_ssh_sg"
+  name        = "allow_ssh"
   description = "Allow SSH inbound connections"
   vpc_id = aws_vpc.ash_vpc.id
 
@@ -76,7 +76,7 @@ resource "aws_launch_configuration" "web" {
   key_name = "Ashfaqdemo"
 
 
-  security_groups = [ aws_security_group.elb_http.id, aws_security_group.allow_ssh ]
+  security_groups = [ aws_security_group.allow_http.id , aws_security_group.allow_ssh.id]
   associate_public_ip_address = true
 
   user_data = <<-EOF
@@ -84,7 +84,7 @@ resource "aws_launch_configuration" "web" {
 sudo apt update -y 
 sudo apt install nginx -y 
 sudo chmod 777 /var/www/html/index.nginx-debian.html
-sudo echo "Hello World" > /var/www/html/index.nginx-debian.html
+sudo echo "hello webapp" > /var/www/html/index.nginx-debian.html
 sudo systemctl start nginx
   EOF
 
@@ -113,7 +113,7 @@ resource "aws_nat_gateway" "privateip" {
   subnet_id     = aws_subnet.private-subnet.id
 }
 
-resource "aws_route_table" "my_vpc_us_east_1a_private-subnet" {
+resource "aws_route_table" "my_vpc_us-east-1a_private-subnet" {
     vpc_id = aws_vpc.ash_vpc.id
 
     route {
@@ -126,13 +126,13 @@ resource "aws_route_table" "my_vpc_us_east_1a_private-subnet" {
     }
 }
 
-resource "aws_route_table_association" "my_vpc_us_east_1a_private-subnet" {
+resource "aws_route_table_association" "my_vpc_us-east-1a_private-subnet" {
     subnet_id = aws_subnet.private-subnet.id
-    route_table_id = aws_route_table.my_vpc_us_east_1a_private-subnet.id
+    route_table_id = aws_route_table.my_vpc_us-east-1a_private-subnet.id
 }
 
 
-resource "aws_security_group" "elb_http" {
+resource "aws_security_group" "allow_http" {
   name        = "elb_http"
   description = "Allow HTTP traffic to instances through Elastic Load Balancer"
   vpc_id = aws_vpc.ash_vpc.id
@@ -159,7 +159,7 @@ resource "aws_security_group" "elb_http" {
 resource "aws_elb" "web_elb" {
   name = "web-elb"
   security_groups = [
-    aws_security_group.elb_http.id
+    aws_security_group.allow_http.id
   ]
   subnets = [
     aws_subnet.public.id
