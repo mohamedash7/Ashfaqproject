@@ -5,7 +5,7 @@ Hi Everyone hope you all are doing good,
 
  I have created a project to setup infrastructure using Terraform
  
- Requirements before deploying the code: AWS account with access key and security key, Terraform installed in your system, git hub account to clone the repo to your local system
+ Requirements before deploying the code: AWS account with access key and security key, An aws key pair if you wish to login to the ec2 instance which is being created refer the link https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html and Terraform installed in your system, git hub account to clone the repo to your local system
  
  Please find the below steps that needs to be followed before deploying the code
  
