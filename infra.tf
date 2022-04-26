@@ -84,7 +84,7 @@ resource "aws_launch_configuration" "web" {
 sudo apt update -y 
 sudo apt install nginx -y 
 sudo chmod 777 /var/www/html/index.nginx-debian.html
-sudo echo "hello webapp" > /var/www/html/index.nginx-debian.html
+sudo echo "I love to be a part of Bestseller family" > /var/www/html/index.nginx-debian.html
 sudo systemctl start nginx
   EOF
 
