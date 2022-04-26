@@ -31,7 +31,7 @@ Please find the below steps that needs to be followed before deploying the code
 
 Output:
 
-Please hit the url of dns name under loadbalancer you will be seeing the "Hello webapp" being displayed in the web page
+Please hit the url of dns name under loadbalancer you will be seeing the "I love to be a part of Bestseller family" being displayed in the web page
 
 You can also verify it by logging in to the ec2 instance and running the command curl://localhost:80 using the ssh client from the terminal
 
